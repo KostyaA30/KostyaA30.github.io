@@ -5,17 +5,21 @@
         <title>Тест</title>
     </head>
     <body>
-        <a style = "inherits: inherit;">Fractal</a>
-        <canvas id = "webgl2" width = "1000" height = "1000" style = "border: 2px Solid Red">
-            Start in brawsers who helping tag "canvas" 
-        </canvas>
-        <script src = "main.js"></script>
-        <!-- <script type = "module">
-            import { initGL } from './main.js';
+        <canvas id = "glCanvas" width = "800" height = "800" style = "border: 2px Solid Red"></canvas>
+        <script type = "module">
+            import { initGL } from "./main.js";
+            import { Render } from "./main.js";
 
             window.addEventListener("load", () => {
                 initGL();
-            })
-        </script> -->
+                window.setInterval(() => {
+                    Render();
+                });
+            });
+        </script>
+        <a href = "2d/fractal/mandl.html">Fractal</a>
+        <a href = "2d/textured/logo.html">Textured quad</a>
+        <a href = "3d/main.html">Light cube</a>
+        <p id = "1"></p>
     </body>
 </html>
