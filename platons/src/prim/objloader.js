@@ -54,6 +54,9 @@ export class objLoader {
                         case "n":
                             cNorm.push(parseFloat(itm[0]), parseFloat(itm[1]), parseFloat(itm[2]));
                             break;
+                        default:
+                            console.log(line);
+                            break;
                     }
                     break;
 
