@@ -3,7 +3,7 @@ export class objLoader {
     }
 
     LoadMeshFromFile(gl, meshName, flipYUV, keepRawData) {
-        const ft2 = fetch("../bin/models/cow.obj")
+        const ft2 = fetch("../bin/models/1.obj")
             .then((res) => res.text())
             .then((data) => {
                 textObj = data;
@@ -12,12 +12,13 @@ export class objLoader {
 
         allData.then((res) => {
             let d = objLoader.parseObjText(textObj, flipYUV);
-            this.mesh = gl.fCreateMeshVAO(meshName, d[0], d[1], d[2], d[3], 3);
+            this.mesh = gl.fCreateMeshVAO(meshName, d[0], d[1], d[2], d[3], d[4], 3);
 
             if (keepRawData) {
                 mesh.aIndex = d[0];
                 mesh.aVert = d[1];
-                mesh.aNorm = d[2];
+                mesh.aColor = d[2];
+                mesh.aNorm = d[3];
             }
         });
 
@@ -92,7 +93,9 @@ export class objLoader {
                             fIndexCnt++;
                         }
 
-                        if (i == 3 && isQuad) fIndex.push(aCache[itm[0]]);
+                        if (i == 3 && isQuad) {
+                            fIndex.push(aCache[itm[0]]);
+                        }
                     }
                     break;
             }
@@ -101,6 +104,6 @@ export class objLoader {
             posB = txt.indexOf("\n", posA);
         }
 
-        return [fIndex, fVert, fNorm, fUV];
+        return [fIndex, fVert, fNorm, fNorm, fUV];
     }
 }

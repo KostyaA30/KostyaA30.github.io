@@ -81,8 +81,9 @@ function onRender(dt) {
     if (textObj !== undefined && flg) {
         objMesh = objMd.mesh;
         gModel.add(objMesh);
+        gModel.setRotation(-90, 0, 0, 5);
         gModel.setPosition(0.0, 0.0, 4.0, 5);
-        gModel.setScale(0.1, 0.1, 0.1, 5);
+        gModel.setScale(0.01, 0.01, 0.01, 5);
         flg = 0;
     }
 
